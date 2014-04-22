@@ -1,0 +1,26 @@
+.uses-shared {
+	background-color: red;
+	color: #FFFFFF;
+}
+
+.parameterized {
+	background-color: green;
+	color: #000000;
+}
+
+.foo {
+	color: green;
+}
+
+.foo .bar {
+	color: red;
+}
+
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+html > h1:first-child, body > h1:first-child {
+	padding-top: 0.75em;
+}

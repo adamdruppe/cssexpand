@@ -1,0 +1,43 @@
+¤set(bg, red);
+
+¤define(shared_style) {
+	background-color: ¤bg;
+	color: ¤makeTextColor(¤bg);
+}
+
+¤define(parameterized_style, color) {
+	background-color: ¤color;
+	color: ¤makeTextColor(¤color);
+}
+
+.uses-shared {
+	¤shared_style;
+}
+
+.parameterized {
+	¤parameterized_style(green);
+}
+
+.parameterized-other {
+	/* this also works */
+	¤parameterized_style {
+		red
+	}
+}
+
+.foo {
+	color: green;
+
+	.bar {
+		color: red;
+	}
+}
+
+html, body {
+	margin: 0px;
+	padding: 0px;
+
+	> h1:first-child {
+		padding-top: 0.75em;
+	}
+}
