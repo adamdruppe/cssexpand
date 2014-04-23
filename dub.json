@@ -1,0 +1,8 @@
+{
+	"name": "cssexpand",
+	"description": "A CSS expansion program",
+	"authors": ["Adam D. Ruppe"],
+	"homepage": "https://github.com/adamdruppe/cssexpand",
+	"license": "BSL-1.0",
+	"targetType":"executable",
+}
