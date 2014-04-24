@@ -5,4 +5,17 @@
 	"homepage": "https://github.com/adamdruppe/cssexpand",
 	"license": "BSL-1.0",
 	"targetType":"executable",
+	"mainSourceFile": "source/cssexpand.d",
+	"configurations": [
+	{
+		"name": "application",
+		"targetType": "executable"
+	},
+	{
+		"name": "library",
+		"targetType": "library",
+		"excludedSourceFiles": ["source/cssexpand.d"]
+	}
+	]
+
 }

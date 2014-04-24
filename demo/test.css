@@ -41,3 +41,41 @@ html, body {
 		padding-top: 0.75em;
 	}
 }
+
+a {
+	color: green;
+	/* Pseudoclass on the parent */
+	:hover {
+		color: black;
+	}
+
+	/* Pseudoclass on all children */
+	*:first-child {
+		font-size: 110%;
+	}
+
+	/* Adding a class to the parent */
+	\&.foo {
+		color: red;
+	}
+
+	.foo \& {
+		color: green;
+	}
+}
+
+@media screen {
+	a {
+		width: 100%;
+	}
+
+	body {
+		width: 50%;
+	}
+}
+
+html {
+	@media screen {
+		width: 40%;
+	}
+}
