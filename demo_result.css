@@ -8,6 +8,11 @@
 	color: #000000;
 }
 
+.parameterized-other {
+	background-color: red;
+	color: #FFFFFF;
+}
+
 .foo {
 	color: green;
 }
@@ -23,4 +28,40 @@ html, body {
 
 html > h1:first-child, body > h1:first-child {
 	padding-top: 0.75em;
+}
+
+a {
+	color: green;
+}
+
+a:hover {
+	color: black;
+}
+
+a *:first-child {
+	font-size: 110%;
+}
+
+a.foo {
+	color: red;
+}
+
+a .foo \& {
+	color: green;
+}
+
+@media screen {
+	a {
+		width: 100%;
+	}
+
+	body {
+		width: 50%;
+	}
+}
+
+html {
+	@media screen {
+			width: 40%;
+		}
 }

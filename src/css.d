@@ -938,11 +938,11 @@ Color readCssColor(string cssColor) {
 }
 
 /*
-Copyright: Adam D. Ruppe, 2010 - 2014
+Copyright: Adam D. Ruppe, 2010 - 2015
 License:   <a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 Authors: Adam D. Ruppe, with contributions by Nick Sabalausky and Trass3r
 
-        Copyright Adam D. Ruppe 2010-2014.
+        Copyright Adam D. Ruppe 2010-2015.
 Distributed under the Boost Software License, Version 1.0.
    (See accompanying file LICENSE_1_0.txt or copy at
         http://www.boost.org/LICENSE_1_0.txt)

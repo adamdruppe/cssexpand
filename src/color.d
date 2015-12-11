@@ -847,6 +847,14 @@ class TrueColorImage : MemoryImage {
 		imageData.bytes = new ubyte[w*h*4];
 	}
 
+	/// Creates with existing data. The data pointer is stored here.
+	this(int w, int h, ubyte[] data) {
+		_width = w;
+		_height = h;
+		assert(data.length == w * h * 4);
+		imageData.bytes = data;
+	}
+
 	/// Returns this
 	override TrueColorImage getAsTrueColorImage() {
 		return this;
@@ -887,7 +895,12 @@ body {
 		sorted ~= ColorUse(color, count);
 
 	uses = null;
-	sorted = sorted.sort;
+	version(no_phobos)
+		sorted = sorted.sort;
+	else {
+		import std.algorithm : sort;
+		sort(sorted);
+	}
 
 	ubyte[Color] paletteAssignments;
 	foreach(idx, entry; palette)
@@ -1113,4 +1126,11 @@ struct Point {
 struct Size {
 	int width;
 	int height;
+}
+
+struct Rectangle {
+	int left;
+	int top;
+	int right;
+	int bottom;
 }

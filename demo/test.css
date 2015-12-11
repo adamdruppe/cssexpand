@@ -59,6 +59,7 @@ a {
 		color: red;
 	}
 
+	/* This does nothing though! & right now only works at the start. */
 	.foo \& {
 		color: green;
 	}
