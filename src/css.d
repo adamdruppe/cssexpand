@@ -263,7 +263,7 @@ CssPart[] lexCss(string css) {
 			// non-at rules can be either rules or sets.
 			// The question is: which comes first, the ';' or the '{' ?
 
-			auto endOfStatement = css.indexOf(";");
+			auto endOfStatement = css.indexOfCssSmart(';');
 			if(endOfStatement == -1)
 				endOfStatement = css.indexOf("}");
 			if(endOfStatement == -1)
@@ -283,6 +283,46 @@ CssPart[] lexCss(string css) {
 	}
 
 	return ret;
+}
+
+// This needs to skip characters inside parens or quotes, so it
+// doesn't trip up on stuff like data uris when looking for a terminating
+// character.
+ptrdiff_t indexOfCssSmart(string i, char find) {
+	int parenCount;
+	char quote;
+	bool escaping;
+	foreach(idx, ch; i) {
+		if(escaping) {
+			escaping = false;
+			continue;
+		}
+		if(quote != char.init) {
+			if(ch == quote)
+				quote = char.init;
+			continue;
+		}
+		if(ch == '\'' || ch == '"') {
+			quote = ch;
+			continue;
+		}
+
+		if(ch == '(')
+			parenCount++;
+
+		if(parenCount) {
+			if(ch == ')')
+				parenCount--;
+			continue;
+		}
+
+		// at this point, we are not in parenthesis nor are we in
+		// a quote, so we can actually search for the relevant character
+
+		if(ch == find)
+			return idx;
+	}
+	return -1;
 }
 
 string cssToString(in CssPart[] css) {
