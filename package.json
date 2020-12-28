@@ -16,6 +16,9 @@
 		"targetType": "library",
 		"excludedSourceFiles": ["source/cssexpand.d"]
 	}
-	]
+	],
+	"dependencies": {
+		"arsd-official:color_base": "*"
+	}
 
 }
